@@ -14,13 +14,12 @@ class Creation(object):
         newPoint = 40
         #Ask for the stats.
         for i in range(5):
-            print(f"How much {words[i]} do you have?")
+            print(f"How much {words[i]} do you have?, you have {newPoint} to distribute")
             stat = int(input(">"))
             #Checks the input to make sure the input is less than 35 and to make sure the point-pool is not 0.
-            if(stat < 35 and newPoint - stat >= 0):
+            if(stat < 35 and newPoint != 0):
                 self.stat.append(stat)
                 newPoint = newPoint - stat
-                print(f"You have this many point you have left: {newPoint}.'")
             #Checks if the point pool is exhausted and if all the points have been filled out.
             elif(newPoint == 0 and i == 5):
                 hallway.Hallway(self.stat).Travel()
@@ -36,10 +35,12 @@ class Creation(object):
                 choice = int(input("Which stat to alter: "))
                 amount = int(input("How much do you want to put into the point? "))
                 #If it's a valid number then add it to the array.
-                if int(choice) <= newPoint and newPoint != 0:
-                    self.stat[choice] = int(self.stat[choice]) + amount
+                if amount <= newPoint and newPoint != 0:
+                    self.stat[choice] = self.stat[choice] + amount
                     newPoint = newPoint - amount
                     print(newPoint)
+                elif(amount > newPoint or newPoint == 0) :
+                    print("That's not a valid amount of point try again!")
                 else:
                 #if there is no more points to insert send you to the Hallway.
                     print("Thank you for being a dear, and following basic instructions. That can't be said for a lot of the students here, now off you go.")
