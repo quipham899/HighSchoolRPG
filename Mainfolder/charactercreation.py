@@ -17,7 +17,7 @@ class Creation(object):
             print(f"How much {words[i]} do you have?, you have {newPoint} to distribute")
             stat = int(input(">"))
             #Checks the input to make sure the input is less than 35 and to make sure the point-pool is not 0.
-            if(stat < 35 and newPoint != 0):
+            if(stat != newPoint and newPoint != 0):
                 self.stat.append(stat)
                 newPoint = newPoint - stat
             #Checks if the point pool is exhausted and if all the points have been filled out.
