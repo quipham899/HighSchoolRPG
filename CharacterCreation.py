@@ -18,6 +18,8 @@ class Creation(object):
                 self.stat.append(stat)
                 newPoint = newPoint - stat
                 print(f"You have this many point you have left: {newPoint}.'")
+            elif(newPoint == 0 and i == 5):
+                Hallway.Hallway(self.stat).Travel()
             else:
                 print("That's not a valid amount of points!")
             while(i == 4 and newPoint != 0):
@@ -34,5 +36,5 @@ class Creation(object):
                 else:
                     print("Thank you for being a dear, and following basic instructions. That can't be said for a lot of the students here, now off you go.")
                     Hallway.Hallway(self.stat).Travel()
+        Hallway.Hallway(self.stat).Travel()            
         print("Thank you for being a dear, and following basic instructions. That can't be said for a lot of the students here, now off you go.")
-        Hallway.Hallway(self.stat).Travel()

@@ -1,6 +1,6 @@
 import random
 import CharacterCreation
-
+import combat
 class Rooms(object):
     def event(self):
         sections = ["Sit-down", "Get-Food", "Go to the Teacher", "Exit"]
@@ -27,5 +27,5 @@ class Hallway(object):
         location = int(input("Where would you like to go?"))
         print(locations[location])
         Hallway.rooms.get(locations[location]).event()
-        fighting = CharacterCreation.Creation()
+        fighting = combat.Combat(self.list)
         fighting.fight()
